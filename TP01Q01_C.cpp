@@ -11,20 +11,23 @@
 //declaracoes
 int length (char* s);
 bool isEnd (char* s);
+bool isPalindromo (char* s);
 
-/*
+/**
 * Metodo main
 */
 int main (){
 	
-	printf("%d", length("teste"));
-	printf("%d", isEnd("FIM"));
-	printf("%d", isEnd("fim"));
+
+	printf("%d", isPalindromo("A***A"));
+	printf("%d", isPalindromo("As**sA"));
+	printf("%d", isPalindromo("ASds)A"));
+
 
 	return 0;
 }
 
-/*
+/**
 * length - conta o tamanho da String
 * @param char*
 * @return int
@@ -43,7 +46,7 @@ int length (char* s){
 	return size;
 }
 
-/*
+/**
 * isEnd - Verifica o fim dos inputs
 * @param char*
 * @return bool
@@ -61,3 +64,27 @@ bool isEnd (char* s){
 
 	return resp;
 }
+
+/**
+* isPalindromo - Verifica se string e' palindromo
+* @param char*
+* @return bool
+*/
+bool isPalindromo (char* s){
+	//definicoes
+	int inicio = 0;
+	int fim  = length(s)-1;
+	bool resp = false;
+	
+	if (fim >= 0)
+		resp = true;
+	while (inicio < fim && resp){
+		resp = s[inicio] == s[fim];
+		inicio++;
+		fim--;
+	}
+	return resp;
+}
+
+
+
