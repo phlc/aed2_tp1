@@ -7,7 +7,7 @@
 
 //dependencias
 #include <stdio.h>
-
+#include <stdlib.h>
 //declaracoes
 int length (char* s);
 bool isEnd (char* s);
@@ -18,11 +18,20 @@ bool isPalindromo (char* s);
 */
 int main (){
 	
+	char* input = (char*) malloc (sizeof(char)*1000);
 
-	printf("%d", isPalindromo("A***A"));
-	printf("%d", isPalindromo("As**sA"));
-	printf("%d", isPalindromo("ASds)A"));
+	fgets(input, 999, stdin);
+	input[length(input)-1] = '\0'; //retirar '\n'
 
+	
+	while (!isEnd(input)){
+		if (isPalindromo(input))
+			printf("%s\n", "SIM");
+		else
+			printf("%s\n", "NAO");
+		fgets(input, 999, stdin);	
+		input[length(input)-1] = '\0'; //retirar '\n'
+	}	
 
 	return 0;
 }
@@ -39,7 +48,7 @@ int length (char* s){
 	//testar input
 	if (s != NULL){
 		while (s[size] != '\0'){
-			size++;
+			++size;
 		}
 	}
 
@@ -53,9 +62,8 @@ int length (char* s){
 */
 bool isEnd (char* s){
 	//declaracoes
-	bool resp = false;
-	int count = 0;
-	
+	bool resp = false;	
+
 	//testar s
 	if (s != NULL && length(s)==3){
 		resp = (s[0]=='F' && s[1]=='I' && s[2]=='M');
