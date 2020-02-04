@@ -9,14 +9,18 @@ public class TP01Q01{
 	* Metodo main
 	*/
 	public static void main (String[] args){
-		MyIO.println(isEnd("FIM"));
-		MyIO.println(isEnd("fim"));
-		MyIO.println(isPalindromo("As d sA"));
-		MyIO.println(isPalindromo("As  sA"));
-		MyIO.println(isPalindromo("AssdA"));
+		//declaracoes
+		String input = MyIO.readLine();
 
-
-	
+		//repetir ate FIM
+		while (!isEnd(input)){
+			if (isPalindromo(input))
+				MyIO.println("SIM");
+			else
+				MyIO.println("NAO");
+			
+			input = MyIO.readLine();
+		}
 	}
 
 	/**
