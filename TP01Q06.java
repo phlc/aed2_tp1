@@ -112,8 +112,9 @@ public class TP01Q06{
 			resp = true;
 		
 		for (int i=0; i<s.length() && resp; i++){
-			if (!('a'<s.charAt(i) && s.charAt(i)<'z' && !isVogal(s.charAt(i))) ||
-			    !('A'<s.charAt(i) && s.charAt(i)<'Z' && !isVogal(s.charAt(i))))
+			if (!('a'<s.charAt(i) && s.charAt(i)<='z') && !('A'<s.charAt(i) && s.charAt(i)<='Z'))
+				resp = false;
+			if (isVogal(s.charAt(i)))
 				resp = false;
 
 		}
@@ -133,7 +134,7 @@ public class TP01Q06{
                         resp = true;
  
                 for (int i=0; i<s.length() && resp; i++){
-                         if (!('0'<s.charAt(i) && s.charAt(i)<'9'))
+                         if (!('0'<=s.charAt(i) && s.charAt(i)<='9'))
                                  resp = false;
                 }
                 return resp;
@@ -165,15 +166,16 @@ public class TP01Q06{
 			resp = true;
 		
 		for (int i=0; i<s.length() && resp; i++){
-			if (sign > 1)
-				resp = false;
-			
-			if (s.charAt(i) == '.' || s.charAt(i) == ',')
+			if (s.charAt(i) == '.' || s.charAt(i) == ','){
 				sign++;
-
+				if (sign>1)
+					resp = false;
+			}
 			else
 				resp = isInt(s.charAt(i));
+			
 		}
+		
 		return resp;
 	}		
 }
