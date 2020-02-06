@@ -118,21 +118,32 @@ public class TP01Q15{
 	*@param String
 	*@return boolean
 	*/
-	public static boolean isConst (String s){
+	public static boolean isConst (String s, int i){
 		//declaracoes
 		boolean resp = false;
 		
 		if (s.length()>0)
 			resp = true;
 		
-		for (int i=0; i<s.length() && resp; i++){
+		if (i<s.length()){
 			if (!('a'<s.charAt(i) && s.charAt(i)<='z') && !('A'<s.charAt(i) && s.charAt(i)<='Z'))
 				resp = false;
 			if (isVogal(s.charAt(i)))
 				resp = false;
 
+			if (resp)
+				resp = isConst(s, ++i);
 		}
 		return resp;
+	}
+
+	/**
+	*isConst - overload
+	*@param String
+	*@return boolean
+	*/
+	public static boolean isConst (String s){
+		return(isConst(s, 0));
 	}
 
 	/**
