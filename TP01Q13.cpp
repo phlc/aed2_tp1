@@ -11,7 +11,7 @@
 //declaracoes
 int length (char* s);
 bool isEnd (char* s);
-char* alter (char* s, int i);
+char* alter (char* s, int i, char origin, char replac);
 
 /**
 * Metodo main
@@ -21,13 +21,20 @@ int main (){
 	fgets(input, 999, stdin);
 	input[length(input)-1] = '\0'; //retirar '\n'
 
-	//srand(4);
+	char k[] = {"qmvdlflsqfiimgeuztjywqgfldhzrvdwoddrquqtbudvehwpnmbyeohagqttzfsghxwrzmlwjtglqckqefndnkwwgniaqwqiavtsqaeiubhxqfjjhdmgfklzyclweyywwqwannmyoritehmzrttssjnjbtjabxohjhiymzqgjtewixzrinwtspuiblhsvahwmjallefezxlvadfxzldibinkgemdlhyelhnxhdwzsnkgftirsuvqcfklhzdmxcilkkuwtebicxskizzityqzrkscxopdivqfltoplzhjczgufkccgxnkfjyielkhoxigcvodcqcfuvrgbgupdxbojlfshxbjglnarkptqsxpuwaaobaretptreiwiyjdipldeqtyzoknnhuksuvpbesbbsfcvhdruxzfxhrktisulxprbwyzdqvfjqrvwoyxdvvuhkgtccmzwwclpnzswrfujtlopdxboqakcmfoecjoghrqyfphbxgwadqpulnxvvriviryeziwmcktvkivnnpupcvvusgrppxrptfqizbrqtingybcypbdseprxuxnwtfumymezgtiijwkyxkiitziyvbagrkjcubjyaksgbfihoqamfenewabnzyekgoodbmmiwkqrxajpimumeabjltuhgdrhalhzfzirxqmimriuldioiswrurrokekhnrbkxbyltmstqdzmivabznnbhekyrowuxkwazwzlidfohnhxwduakjpprhvgdregstrrfsfbvwygistmtwzlmjbngsvkbxwopqidylslwtcnyzokpvxbfzjvaerzkmhlpznxopkvpihzmuitqvjovaypltycckfvcsalxvjhvieybgdodbewxnwnyksnzwdpqqudynxvgvfgfgcnqydzvztpgmxyshcfdxbdxuoipgpzadmerwgbtxbobtktxwcrwrlfupkougrlkkkrbujwipjezwskejalhavaqblarohstcauvagqyszuidocrrctkzszwluxtvkkqoxkvkpqfcnbfzealrpuqmcgsgqvygmjommdddgoypylaiiqdgcyacqicxuyiaeiydlummbjhgzwdrcrjfdocblhctstkhxvcsiaylgahgcfrdgrjlzryajxqggfvmlemosxzeffquahdjkstjzdnawsjplqcldrjmcbbubgezeupqiqorhqzozeqmyjxjwmtfzejtrlapwzpcmnjuooobbxvjooikyumgvwsieyuoiououguznhgqztgzlnzgaejgidyywcspppyedfpna"};
+
+	int origin=0;
+	int  replac=1;
+
 	while (!isEnd(input)){
-		printf("%s\n", (alter(input, 0)));
+		printf("%s\n", (alter(input, 0, k[origin], k[replac] )));
+		origin = origin + 2;
+		replac = replac + 2;
 		fgets(input, 999, stdin);
 		input[length(input)-1] = '\0'; //retirar '\n'
 	}
 }
+
 
 /**
 * length - conta o tamanho da String
@@ -74,15 +81,12 @@ bool isEnd (char* s){
 *@param char*
 *@return char*
 */
-char* alter (char* s, int i){
-	//declaracoes
-	char origin = (char)( 'a' + (rand() % 26));
-	char replac = (char)( 'a' + (rand() % 26));		
-
+char* alter (char* s, int i, char origin, char replac){
+			
 	if(i<length(s)){
 		if (s[i] == origin)
 			s[i]=replac;
-		alter(s, ++i);
+		alter(s, ++i, origin, replac);
 	}
 
 	return s;
