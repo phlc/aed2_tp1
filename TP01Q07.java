@@ -13,7 +13,7 @@ public class TP01Q07{
 	/**
 	* Metodo main
 	*/
-	public static void main (String[] args) throws Exception{
+	public static void main (String[] args){
 		String nome = MyIO.readLine();
 		String endereco = MyIO.readLine();
 	//		while (!isEnd(nome) && !isEnd(endereco)){
@@ -36,26 +36,45 @@ public class TP01Q07{
 	}
 
 	/**
-	*Leitura - Le uma pagina HTML como  String e retorna contagem
+	*html - Le uma pagina HTML
 	*@param String
 	*@return String
 	*/
-	public static String leitura (String endereco) throws Exception{
+	public static String html (String endereco){
 		//declaracoes
-		String resp = "";
-		String linha";
+		String linha;
 		String pagina = "";
-		URL site = new URL(endereco);
-		URLConnection conexao = site.openConnection();
-		BufferedReader entrada = new BufferedReader (new InputStreamReader(conexao.getInputStream()));
-		
-		while ((linha = entrada.readLine()) != null){
-			pagina = pagina + linha;
 
+		try{
+			URL site = new URL(endereco);
+			URLConnection conexao = site.openConnection();
+			BufferedReader entrada = new BufferedReader (new InputStreamReader(conexao.getInputStream()));
+		
+			while ((linha = entrada.readLine()) != null){
+				pagina = pagina + linha;
+			}
+		}
+		
+		catch (Exception e)
+		{
+			MyIO.println("Exception: "+e);
+		}
+		
+		return pagina;
+	}
 /*
 		a(9360) e(11051) i(9618) o(5379) u(1560) á(112) é(146) í(49) ó(93) ú(9) à(6) è(0) ì(0) ò(0) ù(0) ã(248) õ(31) â(7) ê(38) î(0) ô(6) û(0) consoante(59353) <br>(0) <table>(0)
 */
-		}
+	/**
+	*leitura - Conta letras na String
+	*@param String
+	*@return String
+	*/
+	public static String leitura (String endereco){
+		//declaracoes
+		String pagina = html(endereco);
+		String resp = "";
+
 		return resp;
 	}
 }
