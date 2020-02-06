@@ -66,7 +66,7 @@ public class TP01Q15{
 
 	/**
 	*isVogal - Verifica se ha somente vogais
-	*@param String
+	*@param String int
 	*@return boolean
 	*/
 	public static boolean isVogal (String s, int i){
@@ -115,7 +115,7 @@ public class TP01Q15{
 
 	/**
 	*isConst - Verifica se ha somente consoante
-	*@param String
+	*@param String int
 	*@return boolean
 	*/
 	public static boolean isConst (String s, int i){
@@ -148,23 +148,35 @@ public class TP01Q15{
 
 	/**
 	*isInt - verifica se string corresponde a um inteiro
-	*@param String
+	*@param String int
 	*@retur boolean
 	*/
-	public static boolean isInt (String s){
+	public static boolean isInt (String s, int i){
 		//declaracoes
                 boolean resp = false;
  
                 if (s.length()>0)
                         resp = true;
  
-                for (int i=0; i<s.length() && resp; i++){
-                         if (!('0'<=s.charAt(i) && s.charAt(i)<='9'))
+                if (i<s.length()){
+                        if (!('0'<=s.charAt(i) && s.charAt(i)<='9'))
                                  resp = false;
-                }
+                	
+			if(resp)
+				resp = isInt(s, ++i);	
+		}
                 return resp;
         }
-	
+
+	/**
+	*isInt - overload
+	*@param String
+	*@return boolean
+	*/
+	public static boolean isInt (String s){
+		return(isInt(s, 0));
+	}
+
 	/**
 	*isInt - overload
 	*@param char
