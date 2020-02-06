@@ -191,18 +191,17 @@ public class TP01Q15{
 
 	/**
 	*isReal - verifica se string corresponde a um real
-	*@param String
+	*@param String int int
 	*@return boolean
 	*/
-	public static boolean isReal (String s){
+	public static boolean isReal (String s, int i, int sign){
 		//declaracoes
 		boolean resp = false;
-		int sign = 0;
 
 		if (s.length()>0)
 			resp = true;
 		
-		for (int i=0; i<s.length() && resp; i++){
+		if (i<s.length()){
 			if (s.charAt(i) == '.' || s.charAt(i) == ','){
 				sign++;
 				if (sign>1)
@@ -211,8 +210,19 @@ public class TP01Q15{
 			else
 				resp = isInt(s.charAt(i));
 			
+			if (resp)
+				resp = isReal(s, ++i, sign);
 		}
 		
 		return resp;
-	}		
+	}	
+	
+	/**
+	*isReal - overload
+	*@param String
+	*@return boolean
+	*/
+	public static boolean isReal (String s){
+		return (isReal(s, 0, 0));
+	}	
 }
