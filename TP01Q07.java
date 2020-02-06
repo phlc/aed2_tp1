@@ -62,9 +62,8 @@ public class TP01Q07{
 		
 		return pagina;
 	}
-/*
-		a(9360) e(11051) i(9618) o(5379) u(1560) á(112) é(146) í(49) ó(93) ú(9) à(6) è(0) ì(0) ò(0) ù(0) ã(248) õ(31) â(7) ê(38) î(0) ô(6) û(0) consoante(59353) <br>(0) <table>(0)
-*/
+	
+
 	/**
 	*leitura - Conta letras na String
 	*@param String
@@ -74,7 +73,38 @@ public class TP01Q07{
 		//declaracoes
 		String pagina = html(endereco);
 		String resp = "";
-
+		int a, e, i, o, u, á, é, í, ó, ú, à, è, ì, ò, ù, ã, õ, â, ê, î, ô, û, consoante;
+		int br, table;
+		for (int count=0; i<pagina.length(); count++){
+			char let = pagina.charAt(count);
+			
+			if ('a'=let)
+				a++;
+			else if ('e'=let)
+				e++;
+			else if ('i'=let)
+				i++;
+			else if ('o'=let)
+				o++;
+			else if ('u'=let)
+				u++;
+			else if ('á'=let)
+			 	á++;
+			else if ('é'=let)
+				é++;
+			else if ('í'=let)
+				í++;
+			else if ('ó'=let)
+				ó++;
+			else if ('ú'=let)
+				ú++;
+			else if ('à'=let)
+				à++;
+			else if ('è'=let)
+				è++;
+			else if ('ì'=let)
+				ì++;
+		}
 		return resp;
 	}
 }
