@@ -16,12 +16,12 @@ public class TP01Q07{
 	public static void main (String[] args){
 		String nome = MyIO.readLine();
 		String endereco = MyIO.readLine();
-	//		while (!isEnd(nome) && !isEnd(endereco)){
+			while (!isEnd(nome) && !isEnd(endereco)){
 			MyIO.print(leitura(endereco));
 			MyIO.println(" "+nome);
 			nome = MyIO.readLine();
 			endereco = MyIO.readLine();
-	//	}
+		}
 	}
 	
 
@@ -50,9 +50,13 @@ public class TP01Q07{
 			URLConnection conexao = site.openConnection();
 			BufferedReader entrada = new BufferedReader (new InputStreamReader(conexao.getInputStream()));
 		
-			while ((linha = entrada.readLine()) != null){
+			linha = entrada.readLine();
+			while (linha != null){
 				pagina = pagina + linha;
+				linha = entrada.readLine();
+		//		MyIO.println(linha);
 			}
+		//	MyIO.println("Fim do While");
 		}
 		
 		catch (Exception e)
