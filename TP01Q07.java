@@ -78,49 +78,49 @@ public class TP01Q07{
 		for (int count=0; i<pagina.length(); count++){
 			char let = pagina.charAt(count);
 			
-			if ('a'=let)
+			if ('a'==let)
 				a++;
-			else if ('e'=let)
+			else if ('e'==let)
 				e++;
-			else if ('i'=let)
+			else if ('i'==let)
 				i++;
-			else if ('o'=let)
+			else if ('o'==let)
 				o++;
-			else if ('u'=let)
+			else if ('u'==let)
 				u++;
-			else if ('á'=let)
+			else if ('á'==let)
 			 	á++;
-			else if ('é'=let)
+			else if ('é'==let)
 				é++;
-			else if ('í'=let)
+			else if ('í'==let)
 				í++;
-			else if ('ó'=let)
+			else if ('ó'==let)
 				ó++;
-			else if ('ú'=let)
+			else if ('ú'==let)
 				ú++;
-			else if ('à'=let)
+			else if ('à'==let)
 				à++;
-			else if ('è'=let)
+			else if ('è'==let)
 				è++;
-			else if ('ì'=let)
+			else if ('ì'==let)
 				ì++;
-			else if ('ò'=let)
+			else if ('ò'==let)
 				ò++;
-			else if ('ù'=let)
+			else if ('ù'==let)
 				ù++;
-			else if ('ã'=let)
+			else if ('ã'==let)
 				ã++;
-			else if ('õ'=let)
+			else if ('õ'==let)
 				õ++;
-			else if ('â'=let)
+			else if ('â'==let)
 				â++;
-			else if ('ê'=let)
+			else if ('ê'==let)
 				ê++;
-			else if ('î'=let)
+			else if ('î'==let)
 				î++;
-			else if ('ô'=let)
+			else if ('ô'==let)
 				ô++;
-			else if ('û'=let)
+			else if ('û'==let)
 				û++;
 		}
 		resp = a+" "+e+" "+i+" "+o+" "+u+" "+á+" "+é+" "+í+" "+ó+" "+ú+" "+à+" "+è;
