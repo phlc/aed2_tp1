@@ -104,7 +104,28 @@ public class TP01Q07{
 				è++;
 			else if ('ì'=let)
 				ì++;
+			else if ('ò'=let)
+				ò++;
+			else if ('ù'=let)
+				ù++;
+			else if ('ã'=let)
+				ã++;
+			else if ('õ'=let)
+				õ++;
+			else if ('â'=let)
+				â++;
+			else if ('ê'=let)
+				ê++;
+			else if ('î'=let)
+				î++;
+			else if ('ô'=let)
+				ô++;
+			else if ('û'=let)
+				û++;
 		}
+		resp = a+" "+e+" "+i+" "+o+" "+u+" "+á+" "+é+" "+í+" "+ó+" "+ú+" "+à+" "+è;
+		resp = resp+" "+ì+" "+ò+" "+ù+" "+ã+" "+õ+" "+â+" "+ê+" "+î+" "+ô+" "+û+" ";
+		resp =  resp+consoante+" "+br+" "+table;
 		return resp;
 	}
 }
