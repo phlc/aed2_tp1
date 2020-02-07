@@ -15,12 +15,12 @@ public class TP01Q07{
 	*/
 	public static void main (String[] args){
 		String nome = MyIO.readLine();
-		String endereco = MyIO.readLine();
+		String endereco = "";	
 			while (!isEnd(nome) && !isEnd(endereco)){
+			endereco = MyIO.readLine();
 			MyIO.print(leitura(endereco));
 			MyIO.println(" "+nome);
-			nome = MyIO.readLine();
-			endereco = MyIO.readLine();
+			nome = MyIO.readLine();	
 		}
 	}
 	
@@ -53,10 +53,8 @@ public class TP01Q07{
 			linha = entrada.readLine();
 			while (linha != null){
 				pagina = pagina + linha;
-				linha = entrada.readLine();
-		//		MyIO.println(linha);
+				linha = entrada.readLine();	
 			}
-		//	MyIO.println("Fim do While");
 		}
 		
 		catch (Exception e)
