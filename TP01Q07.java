@@ -75,7 +75,8 @@ public class TP01Q07{
 		String resp = "";
 		int a, e, i, o, u, á, é, í, ó, ú, à, è, ì, ò, ù, ã, õ, â, ê, î, ô, û, consoante;
 		int br, table;
-		for (int count=0; i<pagina.length(); count++){
+ 		a=e=i=o=u=á=é=í=ó=ú=à=è=ì=ò=ù=ã=õ=â=ê=î=ô=û=consoante=br=table=0;
+		for (int count=0; count<pagina.length(); count++){
 			char let = pagina.charAt(count);
 			
 			if ('a'==let)
