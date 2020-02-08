@@ -125,9 +125,8 @@ public class TP01Q07{
 				ô++;
 			else if ('û'==let)
 				û++;
-			else if (('a'<=let)&&(let<='z')
+			else if (('a'<=let)&&(let<='z'))
 				consoante++;
-			
 		}
 		resp ="a("+a+") e("+e+") i("+i+") o("+o+") u("+u+") á("+á+") é("+é+") í( "+í;
 		resp = resp+") ó("+ó+") ú("+ú+") à("+à+") è("+è+") ì("+ì+") ò("+ò+") ù("+ù;
