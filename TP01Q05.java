@@ -26,8 +26,6 @@ class Equacao{
                 }
 	}
 
-	//metodos
-
 	/**
 	*getChar - procura proximo char relevante
 	*@return char
@@ -40,6 +38,7 @@ class Equacao{
 			(c!='t') && /*char para NOT*/
 			(c!='(') && /*char para inicio de operacao*/
 			(c!=')') && /*char para fim de operacao*/
+			(c!=',') && /*char para separacao de variaveis*/
 			(!('A'<=c && c<='Z'))){ /*char para variaveis*/  
 		
 			this.count++;
@@ -111,13 +110,31 @@ public class TP01Q05{
 	public static boolean booleana (String s){
 		//declaracoes
 		Equacao eq = new Equacao(s);
-	
-		if(true){
-		MyIO.print(eq.getChar()+" "+eq.getCount()+" "+eq.getValue('A'));
-		eq.updateCount(1);
-		MyIO.println(" "+eq.getChar()+" "+eq.getCount()+" "+eq.getValue('B'));
-		}	
+		
+			
 		return false;
+	}
+
+	/**
+	*and - retorna solucao AND da variaveis
+	*@param Equacao
+	*@return boolean
+	*/
+	public static boolean and (Equacao eq){
+		boolean first = true;
+		boolean second = false;
+		eq.updateCount(1);
+
+		while (eq.getChar() != ')'){
+			if ('A'<=eq.getChar() && eq.getChar()<='Z'){
+				inputs[((int)eq.getChar()-65)] = eq.getValue(eq.getChar());
+			}
+			else if (eq.getChar() = 'a'){
+				
+			}
+		}
+		
+		return (first && second);
 	}
 	
 }
