@@ -15,12 +15,20 @@ public class TP01Q07{
 	*/
 	public static void main (String[] args){
 		String nome = MyIO.readLine();
-		String endereco = "";	
+		String endereco = "";
+		String resp;
+		try{	
 			while (!isEnd(nome) && !isEnd(endereco)){
-			endereco = MyIO.readLine();
-			MyIO.print(leitura(endereco));
-			MyIO.println(" "+nome);
-			nome = MyIO.readLine();	
+				endereco = MyIO.readLine();
+				resp=leitura(endereco);
+				resp = new String (resp.getBytes(), "ISO-8859-1");
+				MyIO.print(resp);
+				MyIO.println(" "+nome);
+				nome = MyIO.readLine();
+			}	
+		}
+		catch (Exception e){
+			MyIO.println ("Excecao: "+e);
 		}
 	}
 	
@@ -75,9 +83,9 @@ public class TP01Q07{
 		//declaracoes
 		String pagina = html(endereco);
 		String resp = "";
-		int a, e, i, o, u, Ã¡, Ã©, Ã­, Ã³, Ãº, Ã , Ã¨, Ã¬, Ã², Ã¹, Ã£, Ãµ, Ã¢, Ãª, Ã®, Ã´, Ã», consoante;
-		int br, table;
- 		a=e=i=o=u=Ã¡=Ã©=Ã­=Ã³=Ãº=Ã =Ã¨=Ã¬=Ã²=Ã¹=Ã£=Ãµ=Ã¢=Ãª=Ã®=Ã´=Ã»=consoante=br=table=0;
+		int a, e, i, o, u, á, é, í, ó, ú, à, è, ì, ò, ù, ã, õ, â, ê, î, ô, û;
+		int consoante, br, table;
+ 		a=e=i=o=u=á=é=í=ó=ú=à=è=ì=ò=ù=ã=õ=â=ê=î=ô=û=consoante=br=table=0;
 		int count = 0;
 		while (count <pagina.length()){
 			char let = pagina.charAt(count);
@@ -97,56 +105,56 @@ public class TP01Q07{
 			else if ('u'==let){
 				u++;
                                 count++;}
-			else if ('Ã¡'==let){
-			 	Ã¡++;
+			else if ('á'==let){
+			 	á++;
                                 count++;}
-			else if ('Ã©'==let){
-				Ã©++;
+			else if ('é'==let){
+				é++;
                                 count++;}
-			else if ('Ã­'==let){
-				Ã­++;
+			else if ('í'==let){
+				í++;
                                 count++;}
-			else if ('Ã³'==let){
-				Ã³++;
+			else if ('ó'==let){
+				ó++;
                                 count++;}
-			else if ('Ãº'==let){
-				Ãº++;
+			else if ('ú'==let){
+				ú++;
                                 count++;}
-			else if ('Ã '==let){
-				Ã ++;
+			else if ('à'==let){
+				à++;
                                 count++;}
-			else if ('Ã¨'==let){
-				Ã¨++;
+			else if ('è'==let){
+				è++;
                                 count++;}
-			else if ('Ã¬'==let){
-				Ã¬++;
+			else if ('ì'==let){
+				ì++;
                                 count++;}
-			else if ('Ã²'==let){
-				Ã²++;
+			else if ('ò'==let){
+				ò++;
                                 count++;}
-			else if ('Ã¹'==let){
-				Ã¹++;
+			else if ('ù'==let){
+				ù++;
                                 count++;}
-			else if ('Ã£'==let){
-				Ã£++;
+			else if ('ã'==let){
+				ã++;
                                 count++;}
-			else if ('Ãµ'==let){
-				Ãµ++;
+			else if ('õ'==let){
+				õ++;
                                 count++;}
-			else if ('Ã¢'==let){
-				Ã¢++;
+			else if ('â'==let){
+				â++;
                                 count++;}
-			else if ('Ãª'==let){
-				Ãª++;
+			else if ('ê'==let){
+				ê++;
                                 count++;}
-			else if ('Ã®'==let){
-				Ã®++;
+			else if ('î'==let){
+				î++;
                                 count++;}
-			else if ('Ã´'==let){
-				Ã´++;
+			else if ('ô'==let){
+				ô++;
                                 count++;}
-			else if ('Ã»'==let){
-				Ã»++;
+			else if ('û'==let){
+				û++;
                                 count++;}
 			else if (('a'<=let)&&(let<='z')){
 				consoante++;
@@ -155,60 +163,50 @@ public class TP01Q07{
 				count++;
 				let = pagina.charAt(count);
 				if ('b'==let){
-					count++;
-					let = pagina.charAt(count);
-					consoante++;
-					if ('r'==let){
-						count++;
-						consoante++;
-						let = pagina.charAt(count);
-						if ('>'==let){
-							br++;
-							count++;
-							consoante = consoante - 2;
-						}
-					}
-				}
+				  count++;
+				  let = pagina.charAt(count);
+				  consoante++;
+				    if ('r'==let){
+				      count++;
+				      consoante++;
+				      let = pagina.charAt(count);
+					if ('>'==let){
+					  br++;
+					  count++;
+					  consoante = consoante - 2;}}}
 				else if ('t'==let){
-					count++;
-                                        let = pagina.charAt(count);
-                                        consoante++;
-                                        if ('a'==let){
+				  count++;
+                                  let = pagina.charAt(count);
+                                  consoante++;
+                                    if ('a'==let){
+                                      count++;
+                                      a++;
+                                      let = pagina.charAt(count);
+                                        if ('b'==let){
+                                          count++;
+					  consoante++;
+					  let =pagina.charAt(count);
+					    if ('l'==let){
+			                      count++;
+                        	              let = pagina.charAt(count);
+                         		      consoante++;
+                                       	        if ('e'==let){
                                                 count++;
-                                                a++;
                                                 let = pagina.charAt(count);
-                                                if ('b'==let){
-                                                        count++;
-							consoante++;
-							let =pagina.charAt(count);
-							if ('l'==let){
-			                                        count++;
-                        			        	let = pagina.charAt(count);
-                         			                consoante++;
-                                       				if ('e'==let){
-                                                			count++;
-                                                			let = pagina.charAt(count);
-									e++;
-                                                			if ('>'==let){
-                                                        			table++;
-                                                        			consoante = consoante - 3;
-										count++;
-										a--;
-										e--;
-                                                			}
-                                        			}
-                                			}            
-                                               }
-                                        }
-				}
-			}			
+						e++;
+                                                if ('>'==let){
+                                                  table++;
+                                                  consoante = consoante - 3;
+						  count++;
+						  a--;
+						  e--;}}}}}}}			
 			else
 				count++;
 		}
-		resp ="a("+a+") e("+e+") i("+i+") o("+o+") u("+u+") Ã¡("+Ã¡+") Ã©("+Ã©+") Ã­("+Ã­;
-		resp = resp+") Ã³("+Ã³+") Ãº("+Ãº+") Ã ("+Ã +") Ã¨("+Ã¨+") Ã¬("+Ã¬+") Ã²("+Ã²+") Ã¹("+Ã¹;
-		resp = resp+") Ã£("+Ã£+") Ãµ("+Ãµ+") Ã¢("+Ã¢+") Ãª("+Ãª+") Ã®("+Ã®+") Ã´("+Ã´+") Ã»("+Ã»;
-		resp = resp+") consoante("+consoante+") <br>("+br+") <table>("+table+")";
+		resp ="a("+a+") e("+e+") i("+i+") o("+o+") u("+u+") á("+á+") é("+é+") í("
+			+í+") ó("+ó+") ú("+ú+") à("+à+") è("+è+") ì("+ì+") ò("+ò+") ù("
+			+ù+") ã("+ã+") õ("+õ+") â("+â+") ê("+ê+") î("+î+") ô("+ô+") û("
+			+û+") consoante("+consoante+") <br>("+br+") <table>("+table+")";
 		return resp;
 	}
 }
