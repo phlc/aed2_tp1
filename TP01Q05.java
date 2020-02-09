@@ -4,54 +4,66 @@
 * Matricula: 651230
 * AED2 - Tarde - Puc Minas
 */
-public class Equacao{
+class Equacao{
 
-//atributos
-private String s;
-private int count;
+	//atributos
+	private String s;
+	private int count;
+	private boolean[] vars;
 
-//construtor
-public Equacao(String s, int count){
-	this.s = s;
-	this.count = count;
-}
+	//construtor
+	public Equacao(String str){
+		this.s = str;
 
-//metodos
+		int n = ((int) this.s.charAt(0)) - 48;
+                this.count = 2;
+                vars = new boolean[n];
+                char c='-';
 
-/**
-*getChar - procura proximo char relevante
-*@return char
-*/
-public char getChar()
-	char c = this.s.charAt(this.count);
+                for (int i=0; i<n; i++){
 
-	while ( (c!='a') //char para AND
-		(c!='r') //char para OR
-		(c!='n') //char para NOT
-		(c!='(') //char para inicio de operacao
-		(c!=')') //char para fim de operacao
-		('A'<=c && c<='Z'){ // char para variaveis  
-		
-		this.count++;
-		c=this.s.charAt(this.count);
+                        vars[i] = (((int)s.charAt(count)) - 48) == 1;
+                        count = count + 2;
+                }
 	}
-	return c;
-}
 
-/**
-*updateCount - atualiza contador
-*@param int
-*/
-public void updateCount (int i){
-	this.count = this.count + i;
-}
+	//metodos
 
-/**
-*getCount - mostra contador
-*@return int
-*/
-public int getCount(){
-	return this.count;
+	/**
+	*getChar - procura proximo char relevante
+	*@return char
+	*/
+	public char getChar(){
+		char c = this.s.charAt(this.count);
+
+		while ( (c!='a') || /*char para AND*/
+			(c!='r') || /*char para OR*/
+			(c!='n') || /*char para NOT*/
+			(c!='(') || /*char para inicio de operacao*/
+			(c!=')') || /*char para fim de operacao*/
+			('A'<=c && c<='Z')){ /*char para variaveis*/  
+		
+			this.count++;
+			c=this.s.charAt(this.count);
+		}
+		return c;
+	}
+
+	/**
+	*updateCount - atualiza contador
+	*@param int
+	*/
+	public void updateCount (int i){
+		this.count = this.count + i;
+	}
+
+	/**
+	*getCount - mostra contador
+	*@return int
+	*/
+	public int getCount(){
+		return this.count;
+	}
 }
 
 public class TP01Q05{
@@ -101,8 +113,6 @@ public class TP01Q05{
 			return "0";
 	}
 	
-	public static char strReader (S
-
 	/**
 	*op - realiza uma operacao booleana
 	*@param - char, string,  boolean[], int
@@ -114,8 +124,6 @@ public class TP01Q05{
 
 
 		return resp;
-	}
-
-	
+	}	
 
 }
