@@ -10,6 +10,12 @@ public class Equacao{
 private String s;
 private int count;
 
+//construtor
+public Equacao(String s, int count){
+	this.s = s;
+	this.count = count;
+}
+
 //metodos
 
 /**
