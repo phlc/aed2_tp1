@@ -78,57 +78,134 @@ public class TP01Q07{
 		int a, e, i, o, u, á, é, í, ó, ú, à, è, ì, ò, ù, ã, õ, â, ê, î, ô, û, consoante;
 		int br, table;
  		a=e=i=o=u=á=é=í=ó=ú=à=è=ì=ò=ù=ã=õ=â=ê=î=ô=û=consoante=br=table=0;
-		for (int count=0; count<pagina.length(); count++){
+		int count = 0;
+		while (count <pagina.length()){
 			char let = pagina.charAt(count);
 			
-			if ('a'==let)
+			if ('a'==let){
 				a++;
-			else if ('e'==let)
+				count++;}
+			else if ('e'==let){
 				e++;
-			else if ('i'==let)
+                                count++;}
+			else if ('i'==let){
 				i++;
-			else if ('o'==let)
+                                count++;}
+			else if ('o'==let){
 				o++;
-			else if ('u'==let)
+                                count++;}
+			else if ('u'==let){
 				u++;
-			else if ('á'==let)
+                                count++;}
+			else if ('á'==let){
 			 	á++;
-			else if ('é'==let)
+                                count++;}
+			else if ('é'==let){
 				é++;
-			else if ('í'==let)
+                                count++;}
+			else if ('í'==let){
 				í++;
-			else if ('ó'==let)
+                                count++;}
+			else if ('ó'==let){
 				ó++;
-			else if ('ú'==let)
+                                count++;}
+			else if ('ú'==let){
 				ú++;
-			else if ('à'==let)
+                                count++;}
+			else if ('à'==let){
 				à++;
-			else if ('è'==let)
+                                count++;}
+			else if ('è'==let){
 				è++;
-			else if ('ì'==let)
+                                count++;}
+			else if ('ì'==let){
 				ì++;
-			else if ('ò'==let)
+                                count++;}
+			else if ('ò'==let){
 				ò++;
-			else if ('ù'==let)
+                                count++;}
+			else if ('ù'==let){
 				ù++;
-			else if ('ã'==let)
+                                count++;}
+			else if ('ã'==let){
 				ã++;
-			else if ('õ'==let)
+                                count++;}
+			else if ('õ'==let){
 				õ++;
-			else if ('â'==let)
+                                count++;}
+			else if ('â'==let){
 				â++;
-			else if ('ê'==let)
+                                count++;}
+			else if ('ê'==let){
 				ê++;
-			else if ('î'==let)
+                                count++;}
+			else if ('î'==let){
 				î++;
-			else if ('ô'==let)
+                                count++;}
+			else if ('ô'==let){
 				ô++;
-			else if ('û'==let)
+                                count++;}
+			else if ('û'==let){
 				û++;
-			else if (('a'<=let)&&(let<='z'))
+                                count++;}
+			else if (('a'<=let)&&(let<='z')){
 				consoante++;
+                                count++;}
+			else if ('<'==let){
+				count++;
+				let = pagina.charAt(count);
+				if ('b'==let){
+					count++;
+					let = pagina.charAt(count);
+					consoante++;
+					if ('r'==let){
+						count++;
+						consoante++;
+						let = pagina.charAt(count);
+						if ('>'==let){
+							br++;
+							count++;
+							consoante = consoante - 2;
+						}
+					}
+				}
+				else if ('t'==let){
+					count++;
+                                        let = pagina.charAt(count);
+                                        consoante++;
+                                        if ('a'==let){
+                                                count++;
+                                                a++;
+                                                let = pagina.charAt(count);
+                                                if ('b'==let){
+                                                        count++;
+							consoante++;
+							let =pagina.charAt(count);
+							if ('l'==let){
+			                                        count++;
+                        			        	let = pagina.charAt(count);
+                         			                consoante++;
+                                       				if ('e'==let){
+                                                			count++;
+                                                			let = pagina.charAt(count);
+									e++;
+                                                			if ('>'==let){
+                                                        			table++;
+                                                        			consoante = consoante - 3;
+										count++;
+										a--;
+										e--;
+                                                			}
+                                        			}
+                                			}            
+                                               }
+                                        }
+				}
+			}			
+			else
+				count++;
 		}
-		resp ="a("+a+") e("+e+") i("+i+") o("+o+") u("+u+") á("+á+") é("+é+") í( "+í;
+		resp ="a("+a+") e("+e+") i("+i+") o("+o+") u("+u+") á("+á+") é("+é+") í("+í;
 		resp = resp+") ó("+ó+") ú("+ú+") à("+à+") è("+è+") ì("+ì+") ò("+ò+") ù("+ù;
 		resp = resp+") ã("+ã+") õ("+õ+") â("+â+") ê("+ê+") î("+î+") ô("+ô+") û("+û;
 		resp = resp+") consoante("+consoante+") <br>("+br+") <table>("+table+")";
