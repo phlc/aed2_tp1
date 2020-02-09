@@ -25,7 +25,7 @@ public class TP01Q05{
 	* @return boolean
 	*/
 	public static boolean isEnd (String s){
-		return (s.length()==1 && s.charAt(0)=='0);
+		return (s.length()==1 && s.charAt(0)=='0');
 	}
 
 	/**
@@ -35,53 +35,36 @@ public class TP01Q05{
 	*/
 	public static String booleana (String s){
 		//declaracoes
-		int n = (int) s.charAt(0);
+		int n = ((int) s.charAt(0)) - 48;
 		int count = 2;
-		boolean[] variaveis = new boolean[n];
-		boolean resp = 0;	
-		char c;	
+		boolean[] variaveis = new boolean[n];	
+		char c='-';	
 
 		for (int i=0; i<n; i++){
 			
-			variaveis[i] = (int)s.charAt(count);
+			variaveis[i] = (((int)s.charAt(count)) - 48) == 1;
 			count = count + 2;
 		}
 		
+		if (op(c, s, variaveis, count))
+			return "1";	
+		else
+			return "0";
+	}
 
-		while (count < s.length()){
-			c = s.charAt(count);
-		}
-	
-		
-			
+	/**
+	*op - realiza uma operacao booleana
+	*@param - char, string,  boolean[], int
+	*@return - boolean
+	*/
+	public static boolean op (char c, String s, boolean[] vars, int count){
+		//definicoes
+		boolean resp = vars[0];
+
+
 		return resp;
 	}
 
-	/**
-	*and - Retorna and de todas variaveis
-	*@param - booleans
-	*@return - boolean
-	*/
-	public static boolean and (boolean a, boolean b){
-		return (a&&b);
-	}
-
-	/**
-	*or - Retorna or de todas variaveis
-	*@param - booleans
-	*@return - boolean
-	*/
-	public static boolean or (boolean a, boolean b){
-		return (a||b);
-	}
-
-	/**
-	*not - Retorna not da variavel
-	*@param - boolean
-	*@return - boolean
-	*/
-	public static boolean not (boolean a){
-		return (!a);
-	}
+	
 
 }
