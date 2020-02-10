@@ -121,20 +121,33 @@ public class TP01Q05{
 	*@return boolean
 	*/
 	public static boolean and (Equacao eq){
-		boolean first = true;
-		boolean second = false;
+		boolean[] inputs = new boolean[5];
+		int input = 0;
+		for (int i=0; i<5; i++){
+			inputs[i] = true // valor neutro para AND
+		}
 		eq.updateCount(1);
 
 		while (eq.getChar() != ')'){
 			if ('A'<=eq.getChar() && eq.getChar()<='Z'){
-				inputs[((int)eq.getChar()-65)] = eq.getValue(eq.getChar());
+				inputs[input] = eq.getValue(eq.getChar());
+				input++;
 			}
 			else if (eq.getChar() = 'a'){
-				
+				inputs[input] = and(eq);
+				input++;
+			}
+			else if (eq.getChar() = 'r'){
+				inputs[input] = or(eq);
+				input++;
+			}
+			else if (eq.getChar() = 't'){
+				inputs[input] = not(eq);
+				input++;
 			}
 		}
 		
-		return (first && second);
+		return (inputs[0] && inputs[1] && inputs[2] && inputs[3] && inputs[4]);
 	}
 	
 }
