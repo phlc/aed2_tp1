@@ -119,35 +119,23 @@ public class TP01Q05{
 	*return boolean
 	*/
 	public static boolean booleana (String s){
-		Equacao eq = new Equacao(s);
-		return (booleana(eq));
-	}
-	
-	/**
-	*booleana - overload - Resolve uma expressao booleana
-	*@param Equacao
-	*@return boolean
-	*/
-	public static boolean booleana (Equacao eq){
 		//declaracoes
+		Equacao eq = new Equacao(s);
 		int init = eq.getCount();
 		int end = eq.getLimit();
 		boolean resp = false;
-		if (init<end){
-			if (eq.getChar() == 'a'){
-				resp =  and(eq);
-			}
-			else if (eq.getChar() == 'r'){
-				resp = or(eq);
-			}
-			else if (eq.getChar() == 't'){
-				resp = not(eq);
-			}
-			else{
-				eq.updateCount(1);
-				resp = booleana (eq);
-			}	
+
+		if (eq.getChar() == 'a'){
+			resp =  and(eq);
 		}
+		else if (eq.getChar() == 'r'){
+			resp = or(eq);
+		}
+		else if (eq.getChar() == 't'){
+			resp = not(eq);
+		}
+			
+		eq.updateCount(1);
 			
 		return resp;
 	}
