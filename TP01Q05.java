@@ -150,4 +150,47 @@ public class TP01Q05{
 		return (inputs[0] && inputs[1] && inputs[2] && inputs[3] && inputs[4]);
 	}
 	
+	/**
+	*or - retorna solucao OR da variaveis
+	*@param Equacao
+	*@return boolean
+	*/
+	public static boolean or (Equacao eq){
+		boolean[] inputs = new boolean[5];
+		int input = 0;
+		for (int i=0; i<5; i++){
+			inputs[i] = false // valor neutro para OR
+		}
+		eq.updateCount(1);
+
+		while (eq.getChar() != ')'){
+			if ('A'<=eq.getChar() && eq.getChar()<='Z'){
+				inputs[input] = eq.getValue(eq.getChar());
+				input++;
+			}
+			else if (eq.getChar() = 'a'){
+				inputs[input] = and(eq);
+				input++;
+			}
+			else if (eq.getChar() = 'r'){
+				inputs[input] = or(eq);
+				input++;
+			}
+			else if (eq.getChar() = 't'){
+				inputs[input] = not(eq);
+				input++;
+			}
+		}
+		
+		return (inputs[0] || inputs[1] || inputs[2] || inputs[3] || inputs[4]);
+	}
+		
+	/**
+	*not - retorna solucao NOT da variavel
+	*@param Equacao
+	*@return boolean
+	*/
+	public static boolean not (Equacao eq){
+		
+	}
 }
