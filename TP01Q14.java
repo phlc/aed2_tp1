@@ -1,5 +1,5 @@
 /**
-* Class Principal - TP01 - Questao 5 - Algebra Booleana
+* Class Principal - TP01 - Questao 14 - Algebra Booleana Recursiva
 * @author Pedro Henrique Lima Carvalho
 * Matricula: 651230
 * AED2 - Tarde - Puc Minas

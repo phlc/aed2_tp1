@@ -85,7 +85,7 @@ class Equacao{
 	}
 }
 
-public class TP01Q14{
+public class TP01Q05{
 	
 	/**
 	* Metodo main
