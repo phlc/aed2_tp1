@@ -15,17 +15,50 @@ class Equacao{
 	//construtor
 	public Equacao(String str){
 		this.s = str;
-		this.limit = this.s.length();
-
 		int n = ((int) this.s.charAt(0)) - 48;
                 this.count = 2;
                 vars = new boolean[n];
 
-                for (int i=0; i<n; i++){
+		variaveis(0); // inicializa vars
+		this.s = clean(0); //limpa a string
 
-                        vars[i] = (((int)s.charAt(count)) - 48) == 1;
-                       this. count = this.count + 2;
-                }
+		this.limit = this.s.length();
+		this.count = 0;
+	}
+	/**
+	*variaveis - inicializa as variaveis do objeto
+	*@param boolean[]
+	*@return boolean{}
+	*/
+	private void variaveis (int i){
+		if (i < ((int) this.s.charAt(0) - 48)){
+			this.vars[i] = (((int)s.charAt(count)) - 48) == 1;
+			this.count = this.count + 2;
+			variaveis(++i);
+		}
+	}
+
+	/**
+	*clean - retira os caracteres desnecessarios da string
+	*/
+	private String clean (int i){
+		String resp = "";
+		if (i < this.s.length()){
+			char c = this.s.charAt(i);
+			
+			if ((c=='a') || /*char para AND*/
+			    (c=='r') || /*char para OR*/
+			    (c=='t') || /*char para NOT*/
+			    (c==')') || /*char para fim de operacao*/
+			    ('A'<=c && c<='Z')){ /*char para variaveis*/  
+				
+				resp =  c + clean(++i);
+			}
+			else{
+				resp = clean(++i);
+			}
+		}
+		return resp;
 	}
 
 	/**
@@ -33,20 +66,7 @@ class Equacao{
 	*@return char
 	*/
 	public char getChar(){
-		char c = this.s.charAt(this.count);
-
-		while ( (c!='a') && /*char para AND*/
-			(c!='r') && /*char para OR*/
-			(c!='t') && /*char para NOT*/
-			(c!='(') && /*char para inicio de operacao*/
-			(c!=')') && /*char para fim de operacao*/
-			(c!=',') && /*char para separacao de variaveis*/
-			(!('A'<=c && c<='Z'))){ /*char para variaveis*/  
-		
-			this.count++;
-			c=this.s.charAt(this.count);
-		}
-		return c;
+		return (this.s.charAt(this.count));
 	}
 
 	/**
@@ -91,17 +111,23 @@ public class TP01Q14{
 	* Metodo main
 	*/
 	public static void main (String[] args){
+		tp01q14();
+	}
+
+	/**
+	* tp01q14 permite percorrer recursivamente todas as linhas de input
+	*/
+	public static void tp01q14 (){
 		String input = MyIO.readLine();
-		while (!isEnd(input)){	
+		if (!isEnd(input)){	
 			if (booleana(input))
 				MyIO.println("1");	
 			else
 				MyIO.println("0");
 			
-			input = MyIO.readLine();
+			tp01q14();
 		}
 	}
-	
 
 	/**
 	* isEnd - Verifica o fim das entradas
@@ -130,24 +156,21 @@ public class TP01Q14{
 	*/
 	public static boolean booleana (Equacao eq){
 		//declaracoes
-		int init = eq.getCount();
-		int end = eq.getLimit();
 		boolean resp = false;
-		if (init<end){
-			if (eq.getChar() == 'a'){
-				resp =  and(eq);
-			}
-			else if (eq.getChar() == 'r'){
-				resp = or(eq);
-			}
-			else if (eq.getChar() == 't'){
-				resp = not(eq);
-			}
-			else{
-				eq.updateCount(1);
-				resp = booleana (eq);
-			}	
+
+		if (eq.getChar() == 'a'){
+			resp =  and(eq);
 		}
+		else if (eq.getChar() == 'r'){
+			resp = or(eq);
+		}
+		else if (eq.getChar() == 't'){
+			resp = not(eq);
+		}
+		else{
+			eq.updateCount(1);
+			resp = booleana (eq);
+		}	
 			
 		return resp;
 	}
