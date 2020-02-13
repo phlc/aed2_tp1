@@ -24,7 +24,6 @@ class Equacao{
 
 		this.limit = this.s.length();
 		this.count = 0;
-
 	}
 	/**
 	*variaveis - inicializa as variaveis do objeto
@@ -50,6 +49,7 @@ class Equacao{
 			if ((c=='a') || /*char para AND*/
 			    (c=='r') || /*char para OR*/
 			    (c=='t') || /*char para NOT*/
+			    (c==')') || /*char para fechamento de operacao*/
 			    ('A'<=c && c<='Z')){ /*char para variaveis*/  
 				
 				resp =  c + clean(++i);
@@ -180,7 +180,7 @@ public class TP01Q14{
 	*/
 	public static boolean and (Equacao eq){
 		boolean a = true;
-		boolean b = true;
+		boolean b = true;//caractere neutro para and
 			
 		if (eq.getChar() == 'a'){
 			eq.updateCount(1);
@@ -199,21 +199,11 @@ public class TP01Q14{
 				eq.updateCount(1);	
 		}
 
-		if (eq.getChar() == 'a'){
-			eq.updateCount(1);
+		if (eq.getChar() != ')'){
 			b = and(eq);
 		}
-		else if (eq.getChar() == 'r'){
+		else{
 			eq.updateCount(1);
-			b = or(eq);
-		}
-		else if (eq.getChar() == 't'){
-			eq.updateCount(1);
-			b = not(eq);
-		}
-		else if ('A'<=eq.getChar() && eq.getChar()<='Z'){
-				b = eq.getValue(eq.getChar());
-				eq.updateCount(1);	
 		}
 		
 		return (a && b);
@@ -226,7 +216,7 @@ public class TP01Q14{
 	*/
 	public static boolean or (Equacao eq){
 		boolean a = false;
-		boolean b = false;
+		boolean b = false;//caractere neutro para or
 			
 		if (eq.getChar() == 'a'){
 			eq.updateCount(1);
@@ -245,23 +235,12 @@ public class TP01Q14{
 			eq.updateCount(1);
 		}		
 	
-		if (eq.getChar() == 'a'){
-			eq.updateCount(1);
-			b = and(eq);
-		}
-		else if (eq.getChar() == 'r'){
-			eq.updateCount(1);
+		if (eq.getChar() != ')'){
 			b = or(eq);
 		}
-		else if (eq.getChar() == 't'){
-			eq.updateCount(1);
-			b = not(eq);
-		}
-		else if ('A'<=eq.getChar() && eq.getChar()<='Z'){
-			b = eq.getValue(eq.getChar());
+		else{
 			eq.updateCount(1);
 		}		
-
 
 		return (a || b);
 	}
@@ -291,6 +270,8 @@ public class TP01Q14{
 			eq.updateCount(1);
 		}		
 		
+		eq.updateCount(1);
+	
 		return !resp;
 	}
 }
